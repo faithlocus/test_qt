@@ -98,7 +98,6 @@ void MainWindow::on_textEdit_copyAvailable(bool b)
     ui->actionpaste->setEnabled(ui->textEdit->canPaste());
 }
 
-
 void MainWindow::on_textEdit_selectionChanged()
 {
     QTextCharFormat fmt;
