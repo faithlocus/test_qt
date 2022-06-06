@@ -157,6 +157,160 @@
         <attribute name="title">
          <string>QListWidget</string>
         </attribute>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>441</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <widget class="QLabel" name="label_2">
+          <property name="geometry">
+           <rect>
+            <x>11</x>
+            <y>21</y>
+            <width>65</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>当前项变化</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_2">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>20</y>
+            <width>211</width>
+            <height>24</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QCheckBox" name="checkBox">
+          <property name="geometry">
+           <rect>
+            <x>356</x>
+            <y>22</y>
+            <width>64</width>
+            <height>26</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>可编辑</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>110</y>
+           <width>441</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string/>
+         </property>
+         <widget class="QToolButton" name="toolButton_6">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>116</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>tBtnSelectItem</string>
+          </property>
+          <property name="popupMode">
+           <enum>QToolButton::MenuButtonPopup</enum>
+          </property>
+          <property name="toolButtonStyle">
+           <enum>Qt::ToolButtonTextBesideIcon</enum>
+          </property>
+         </widget>
+         <widget class="QToolButton" name="toolButton_7">
+          <property name="geometry">
+           <rect>
+            <x>140</x>
+            <y>20</y>
+            <width>74</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>tBtnSelAll</string>
+          </property>
+         </widget>
+         <widget class="QToolButton" name="toolButton_8">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>20</y>
+            <width>90</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>tBtnSelNone</string>
+          </property>
+         </widget>
+         <widget class="QToolButton" name="toolButton_9">
+          <property name="geometry">
+           <rect>
+            <x>340</x>
+            <y>20</y>
+            <width>81</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>tBtnSelInvs</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QListWidget" name="listWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>200</y>
+           <width>441</width>
+           <height>211</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>New Item</string>
+          </property>
+          <property name="checkState">
+           <enum>Checked</enum>
+          </property>
+          <property name="icon">
+           <iconset resource="src.qrc">
+            <normaloff>:/icons/icons/check2.ico</normaloff>:/icons/icons/check2.ico</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>New Item</string>
+          </property>
+          <property name="checkState">
+           <enum>Unchecked</enum>
+          </property>
+          <property name="icon">
+           <iconset resource="src.qrc">
+            <normaloff>:/icons/icons/check2.ico</normaloff>:/icons/icons/check2.ico</iconset>
+          </property>
+         </item>
+        </widget>
        </widget>
        <widget class="QWidget" name="tab_2">
         <attribute name="title">
