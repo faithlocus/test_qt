@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>919</width>
+    <height>429</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QCalendarWidget" name="calendarWidget">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>20</y>
+      <width>361</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="gridVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>471</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>时间</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="2">
+      <widget class="QTimeEdit" name="timeEdit"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="lineEdit_time"/>
+     </item>
+     <item row="1" column="4">
+      <widget class="QPushButton" name="pushButton_time">
+       <property name="text">
+        <string>设置时间</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>日期</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLineEdit" name="lineEdit_date"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QPushButton" name="pushButton_date">
+       <property name="text">
+        <string>设置日期</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>时间日期</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="2">
+      <widget class="QDateTimeEdit" name="dateTimeEdit">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLineEdit" name="lineEdit_datetime"/>
+     </item>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="pushButton_datetime">
+       <property name="text">
+        <string>设置时间日期</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_now">
+       <property name="text">
+        <string>lable</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="pushbtn_now">
+       <property name="text">
+        <string>读取当前时间</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>240</y>
+      <width>246</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0" colspan="2">
+      <widget class="QPushButton" name="pushButton_start_timer">
+       <property name="text">
+        <string>开始</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" colspan="2">
+      <widget class="QPushButton" name="pushButton_stop_timer">
+       <property name="text">
+        <string>结束</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>周期</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_timer_dur">
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="pushButton_timer_set">
+       <property name="text">
+        <string>设置</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="lable_dur">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>919</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
