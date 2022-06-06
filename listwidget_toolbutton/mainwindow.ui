@@ -36,53 +36,43 @@
         <attribute name="label">
          <string>QListWidget操作</string>
         </attribute>
-        <widget class="QWidget" name="">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>171</width>
-           <height>331</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QToolButton" name="toolButton">
-            <property name="text">
-             <string>tBtnListInit</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_2">
-            <property name="text">
-             <string>tBtnListClear</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_3">
-            <property name="text">
-             <string>tBtnListInsert</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_4">
-            <property name="text">
-             <string>tBtnListAppend</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButton_5">
-            <property name="text">
-             <string>tBtnListDelete</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QToolButton" name="toolButton">
+           <property name="text">
+            <string>tBtnListInit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QToolButton" name="toolButton_2">
+           <property name="text">
+            <string>tBtnListClear</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QToolButton" name="toolButton_3">
+           <property name="text">
+            <string>tBtnListInsert</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QToolButton" name="toolButton_4">
+           <property name="text">
+            <string>tBtnListAppend</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QToolButton" name="toolButton_5">
+           <property name="text">
+            <string>tBtnListDelete</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
        <widget class="QWidget" name="page_2">
         <property name="geometry">
