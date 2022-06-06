@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>pic/北京.ico</file>
+    </qresource>
+</RCC>
