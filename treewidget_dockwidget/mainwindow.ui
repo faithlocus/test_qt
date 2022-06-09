@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>505</width>
+         <height>485</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>目录树</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>试图</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dockWidget">
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget">
+       <column>
+        <property name="text">
+         <string>节点</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>节点类型</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_add_folder"/>
+   <addaction name="action_add_file"/>
+   <addaction name="action_delete_item"/>
+   <addaction name="action_scan_items"/>
+   <addaction name="separator"/>
+   <addaction name="action_zoomin"/>
+   <addaction name="action_zoomout"/>
+   <addaction name="action_real_size"/>
+   <addaction name="action_fitw"/>
+   <addaction name="action_fith"/>
+   <addaction name="separator"/>
+   <addaction name="action_dock_float"/>
+   <addaction name="action_dock_visible"/>
+   <addaction name="action_quit"/>
+  </widget>
+  <action name="action_add_folder">
+   <property name="icon">
+    <iconset resource="src.qrc">
+     <normaloff>:/icons/icons/open3.bmp</normaloff>:/icons/icons/open3.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>添加目录</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="action_add_file">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/120.bmp</normaloff>:/icons/120.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>添加文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="action_delete_item">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/delete1.bmp</normaloff>:/icons/delete1.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>删除节点</string>
+   </property>
+  </action>
+  <action name="action_scan_items">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/upfold1.bmp</normaloff>:/icons/upfold1.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>遍历节点</string>
+   </property>
+  </action>
+  <action name="action_zoomin">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/418.bmp</normaloff>:/icons/418.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>放大</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="action_zoomout">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/416.bmp</normaloff>:/icons/416.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>缩小</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_real_size">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/414.bmp</normaloff>:/icons/414.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>实际大小</string>
+   </property>
+  </action>
+  <action name="action_fitw">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/424.bmp</normaloff>:/icons/424.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>适当宽度</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="action_fith">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/426.bmp</normaloff>:/icons/426.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>适当高度</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="action_dock_float">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/103.bmp</normaloff>:/icons/103.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>窗体浮动</string>
+   </property>
+  </action>
+  <action name="action_dock_visible">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/104.bmp</normaloff>:/icons/104.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>窗体可见</string>
+   </property>
+  </action>
+  <action name="action_quit">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/314.bmp</normaloff>:/icons/314.bmp</iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="src.qrc"/>
+ </resources>
+ <connections/>
+</ui>
