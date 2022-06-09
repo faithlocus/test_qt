@@ -31,6 +31,11 @@ private slots:
     void onActionAddFilesTriggered();
     void onCurrentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *);
     void onActionDeleteItemTriggered();
+    void onActionScanItemsTriggered();
+    void onActionFitHTriggered();
+    void onActionFitWTriggered();
+    void onActionZoomInTriggered();
+    void onActionZoomRealSizeTriggered();
 
 private:
     enum TreeItemType { kTopItem = 1001, kGroupItem, kImageItem };

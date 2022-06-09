@@ -55,6 +55,13 @@ void MainWindow::initSignalSlot()
             &QAction::triggered,
             this,
             &MainWindow::onActionDeleteItemTriggered);
+    connect(ui->action_scan_items,
+            &QAction::triggered,
+            this,
+            &MainWindow::onActionScanItemsTriggered);
+    connect(ui->action_fith, &QAction::triggered, this, &MainWindow::onActionFitHTriggered);
+    connect(ui->action_fitw, &QAction::triggered, this, &MainWindow::onActionFitWTriggered);
+    connect(ui->action_zoomin, &QAction::triggered, this, &MainWindow::onActionZoomInTriggered);
 }
 
 void MainWindow::onActionAddFolderTriggered()
@@ -155,12 +162,62 @@ void MainWindow::onCurrentItemChanged(QTreeWidgetItem *cur, QTreeWidgetItem *pre
     }
 }
 
-void MainWindow::displayImage(QTreeWidgetItem *item) {}
-
 void MainWindow::onActionDeleteItemTriggered()
 {
     QTreeWidgetItem *item = ui->treeWidget->currentItem();
     QTreeWidgetItem *par = item->parent();
     par->removeChild(item);
     delete item;
+}
+
+void MainWindow::onActionScanItemsTriggered()
+{
+    for (int i = 0; i < ui->treeWidget->topLevelItemCount(); ++i) {
+        QTreeWidgetItem *item = ui->treeWidget->topLevelItem(i);
+        changeItemCaption(item);
+    }
+}
+
+void MainWindow::changeItemCaption(QTreeWidgetItem *item)
+{
+    QString str = "*" + item->text(kColItem);
+    item->setText(kColItem, str);
+    if (item->childCount() > 0)
+        for (int i = 0; i < item->childCount(); ++i)
+            changeItemCaption(item->child(i));
+}
+
+void MainWindow::displayImage(QTreeWidgetItem *item)
+{
+    QString file_name = item->data(kColItem, Qt::UserRole).toString();
+    label_file_name_->setText(file_name);
+    cur_pixmap_.load(file_name);
+    onActionFitHTriggered();
+}
+
+void MainWindow::onActionFitHTriggered()
+{
+    int h = ui->scrollArea->height();
+    int realh = cur_pixmap_.height();
+    pix_ratio_ = float(h) / realh;
+    QPixmap pix = cur_pixmap_.scaledToHeight(h - 30);
+    ui->label->setPixmap(pix);
+}
+
+void MainWindow::onActionFitWTriggered()
+{
+    int w = ui->scrollArea->width();
+    int realw = cur_pixmap_.width();
+    pix_ratio_ = float(w) / realw;
+    QPixmap pix = cur_pixmap_.scaledToWidth(w - 30);
+    ui->label->setPixmap(pix);
+}
+
+void MainWindow::onActionZoomInTriggered()
+{
+    pix_ratio_ = pix_ratio_ / 2;
+    int w = pix_ratio_ * cur_pixmap_.width();
+    int h = pix_ratio_ * cur_pixmap_.height();
+    QPixmap pix = cur_pixmap_.scaled(w, h);
+    ui->label->setPixmap(pix);
 }
