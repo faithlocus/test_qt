@@ -32,3 +32,13 @@ void MainWindow::on_pushButton_add_clicked()
     ui->listView->setCurrentIndex(index);
 }
 
+
+void MainWindow::on_pushButton_insert_clicked()
+{
+    auto index = ui->listView->currentIndex();
+    model_->insertRow(index.row());
+    model_->setData(index, "insert item", Qt::DisplayRole);
+    ui->listView->setCurrentIndex(index);
+}
+
+
