@@ -62,6 +62,12 @@ void MainWindow::initSignalSlot()
     connect(ui->action_fith, &QAction::triggered, this, &MainWindow::onActionFitHTriggered);
     connect(ui->action_fitw, &QAction::triggered, this, &MainWindow::onActionFitWTriggered);
     connect(ui->action_zoomin, &QAction::triggered, this, &MainWindow::onActionZoomInTriggered);
+    connect(ui->action_zoomout, &QAction::triggered, this, &MainWindow::onActionZoomOutTriggered);
+    connect(ui->action_real_size,
+            &QAction::triggered,
+            this,
+            &MainWindow::onActionZoomRealSizeTriggered);
+    connect(ui->action_dock_visible, &QAction::toggled, this, &MainWindow::onActionDockVisiableToggled);
 }
 
 void MainWindow::onActionAddFolderTriggered()
@@ -215,9 +221,24 @@ void MainWindow::onActionFitWTriggered()
 
 void MainWindow::onActionZoomInTriggered()
 {
+    pix_ratio_ = pix_ratio_ * 2;
+    int w = pix_ratio_ * cur_pixmap_.width();
+    int h = pix_ratio_ * cur_pixmap_.height();
+    QPixmap pix = cur_pixmap_.scaled(w, h);
+    ui->label->setPixmap(pix);
+}
+
+void MainWindow::onActionZoomOutTriggered()
+{
     pix_ratio_ = pix_ratio_ / 2;
     int w = pix_ratio_ * cur_pixmap_.width();
     int h = pix_ratio_ * cur_pixmap_.height();
     QPixmap pix = cur_pixmap_.scaled(w, h);
     ui->label->setPixmap(pix);
+}
+
+void MainWindow::onActionZoomRealSizeTriggered()
+{
+    pix_ratio_ = 1;
+    ui->label->setPixmap(cur_pixmap_);
 }

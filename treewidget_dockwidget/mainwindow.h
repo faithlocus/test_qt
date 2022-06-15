@@ -35,7 +35,10 @@ private slots:
     void onActionFitHTriggered();
     void onActionFitWTriggered();
     void onActionZoomInTriggered();
+    void onActionZoomOutTriggered();
     void onActionZoomRealSizeTriggered();
+    void onActionDockVisiableToggled(bool);
+
 
 private:
     enum TreeItemType { kTopItem = 1001, kGroupItem, kImageItem };

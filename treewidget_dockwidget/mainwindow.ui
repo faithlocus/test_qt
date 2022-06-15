@@ -167,6 +167,9 @@
    <property name="text">
     <string>放大</string>
    </property>
+   <property name="toolTip">
+    <string>放大</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+I</string>
    </property>
@@ -177,6 +180,9 @@
      <normaloff>:/icons/416.bmp</normaloff>:/icons/416.bmp</iconset>
    </property>
    <property name="text">
+    <string>缩小</string>
+   </property>
+   <property name="toolTip">
     <string>缩小</string>
    </property>
    <property name="shortcut">
