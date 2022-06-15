@@ -78,7 +78,7 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_7">
+         <widget class="QPushButton" name="pushButton_show">
           <property name="text">
            <string>显示数据模型的StringList</string>
           </property>
