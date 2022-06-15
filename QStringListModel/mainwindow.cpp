@@ -42,3 +42,17 @@ void MainWindow::on_pushButton_insert_clicked()
 }
 
 
+
+void MainWindow::on_pushButton_delete_clicked()
+{
+    auto index = ui->listView->currentIndex();
+    model_->removeRow(index.row());
+}
+
+
+
+void MainWindow::on_pushButton_clearlist_clicked()
+{
+    model_->removeRows(0, model_->rowCount());
+}
+
