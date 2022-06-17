@@ -1,7 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QLabel>
+#include <QItemSelectionModel>
 #include <QMainWindow>
+#include <QStandardItemModel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +19,19 @@ public:
     ~MainWindow();
 
 private:
+    void initModelFromStringList(QStringList &);
+
+private slots:
+    void on_currentChanged(const QModelIndex &current, const QModelIndex &previous);
+
+private:
+    QLabel *label_current_file_;
+    QLabel *label_cell_pos_;
+    QLabel *label_cell_text_;
+
+    QStandardItemModel *theModel;
+    QItemSelectionModel *theSelection;
+
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
