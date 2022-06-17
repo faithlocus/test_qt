@@ -36,7 +36,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex &previous){
+void MainWindow::on_currentChanged(const QModelIndex &current, const QModelIndex &previous)
+{
+    if (current.isValid()) {
+        label_cell_pos_->setText(
+            QString::asprintf("current pos:%d-%d", current.row(), current.column()));
+        auto item = theModel->itemFromIndex(current);
+        label_cell_text_->setText("text:" + item->text());
+        QFont font = item->font();
+        ui->action_blod->setChecked(font.bold());
+    }
 
 }
 
