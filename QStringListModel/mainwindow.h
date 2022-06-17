@@ -25,6 +25,10 @@ private slots:
 
     void on_pushButton_clearlist_clicked();
 
+    void on_pushButton_cleartext_clicked();
+
+    void on_pushButton_show_clicked();
+
 private:
     QStringListModel *model_;
     Ui::MainWindow *ui;

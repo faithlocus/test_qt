@@ -56,3 +56,20 @@ void MainWindow::on_pushButton_clearlist_clicked()
     model_->removeRows(0, model_->rowCount());
 }
 
+
+void MainWindow::on_pushButton_cleartext_clicked()
+{
+    ui->plainTextEdit->clear();
+}
+
+
+void MainWindow::on_pushButton_show_clicked()
+{
+    QStringList tmp_list = model_->stringList();
+    ui->plainTextEdit->clear();
+    for (int i = 0; i < tmp_list.count(); ++i) {
+        ui->plainTextEdit->appendPlainText(tmp_list.at(i));
+    }
+
+}
+
