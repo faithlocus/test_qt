@@ -70,6 +70,11 @@ void MainWindow::on_pushButton_show_clicked()
     for (int i = 0; i < tmp_list.count(); ++i) {
         ui->plainTextEdit->appendPlainText(tmp_list.at(i));
     }
+}
 
+
+void MainWindow::on_listView_clicked(const QModelIndex &index)
+{
+    ui->label->setText(QString::asprintf("当前项：row=%d, column=%d", index.row(), index.column()));
 }
 
