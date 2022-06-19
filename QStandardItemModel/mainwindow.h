@@ -25,6 +25,12 @@ private:
 private slots:
     void on_currentChanged(const QModelIndex &current, const QModelIndex &previous);
     void onActionOpenTriggered();
+    void onActionAppendTriggered();
+    void onActionDeleteTriggered();
+    void onActionAlignLeftTriggered();
+    void onActionAlignBoldTriggered();
+    void onActionPreviewTriggered();
+    void onActionSaveTriggered();
 
 private:
     QLabel *label_current_file_;
