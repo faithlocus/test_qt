@@ -28,6 +28,10 @@ private slots:
 
     void on_pushButton_sel_color_clicked();
 
+    void on_pushButton_sel_font_clicked();
+
+    void on_pushButton_input_str_clicked();
+
 private:
     Ui::Widget *ui;
 };

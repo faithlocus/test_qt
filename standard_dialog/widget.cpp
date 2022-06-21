@@ -4,6 +4,8 @@
 #include <QFileDialog>
 #include <QColorDialog>
 #include <QFontDialog>
+#include <QLineEdit>
+#include <QInputDialog>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -91,4 +93,18 @@ void Widget::on_pushButton_sel_font_clicked()
         ui->plainTextEdit->setFont(font);
 }
 
+
+
+void Widget::on_pushButton_input_str_clicked()
+{
+    QString dlgTitle = "input work widget";
+    QString txtLable = "input file name";
+    QString defaultInput = "new file.txt";
+    QLineEdit::EchoMode echoMode = QLineEdit::Normal;
+//    QLineEdit::EchoMode echoMode = QLineEdit::Password;
+    bool ok = false;
+    QString text = QInputDialog::getText(this, dlgTitle, txtLable, echoMode, defaultInput, &ok);
+    if (ok && !text.isEmpty())
+        ui->plainTextEdit->appendPlainText(text);
+}
 
