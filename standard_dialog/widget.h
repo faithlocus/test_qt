@@ -39,6 +39,16 @@ private slots:
 
     void on_pushButton_input_item_clicked();
 
+    void on_pushButton_question_clicked();
+
+    void on_pushButton_information_clicked();
+
+    void on_pushButton_warning_clicked();
+
+    void on_pushButton_critical_clicked();
+
+    void on_pushButton_abort_clicked();
+
 private:
     Ui::Widget *ui;
 };

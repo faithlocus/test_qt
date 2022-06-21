@@ -6,6 +6,7 @@
 #include <QFontDialog>
 #include <QInputDialog>
 #include <QLineEdit>
+#include <QMessageBox>
 
 Widget::Widget(QWidget *parent) : QWidget(parent), ui(new Ui::Widget) {
     ui->setupUi(this);
@@ -128,4 +129,48 @@ void Widget::on_pushButton_input_item_clicked() {
     QString text = QInputDialog::getItem(this, dlgTitle, txtLable, items, curIndex, editable, &ok);
     if (ok && !text.isEmpty())
         ui->plainTextEdit->appendPlainText(text);
+}
+
+void Widget::on_pushButton_question_clicked() {
+    QString                     dlgTitle   = "Question dialog";
+    QString                     strInfo    = "file opened, point size is setted";
+    QMessageBox::StandardButton defaultBtn = QMessageBox::NoButton;
+    QMessageBox::StandardButton resultBtn =
+        QMessageBox::question(this,
+                              dlgTitle,
+                              strInfo,
+                              QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+                              defaultBtn);
+    if (resultBtn == QMessageBox::Yes)
+        ui->plainTextEdit->appendPlainText("Question dialog, Yes selected");
+    else if (resultBtn == QMessageBox::No)
+        ui->plainTextEdit->appendPlainText("Question dialog, No selected");
+    else if (resultBtn == QMessageBox::Cancel)
+        ui->plainTextEdit->appendPlainText("Question dialog, Cancel selected");
+    else
+        ui->plainTextEdit->appendPlainText("Question dialog, No selected");
+}
+
+void Widget::on_pushButton_information_clicked() {
+    QString dlgTitle = "information dialog";
+    QString strInfo  = "file opened, point size is setted";
+    QMessageBox::information(this, dlgTitle, strInfo, QMessageBox::Ok, QMessageBox::NoButton);
+}
+
+void Widget::on_pushButton_warning_clicked() {
+    QString dlgTitle = "warning dialog";
+    QString strInfo  = "file opened, point size is setted";
+    QMessageBox::warning(this, dlgTitle, strInfo);
+}
+
+void Widget::on_pushButton_critical_clicked() {
+    QString dlgTitle = "critical dialog";
+    QString strInfo  = "file opened, point size is setted";
+    QMessageBox::critical(this, dlgTitle, strInfo);
+}
+
+void Widget::on_pushButton_abort_clicked() {
+    QString dlgTitle = "about dialog";
+    QString strInfo  = "file opened, point size is setted";
+    QMessageBox::about(this, dlgTitle, strInfo);
 }
