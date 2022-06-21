@@ -4,11 +4,12 @@
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class Widget; }
+namespace Ui {
+class Widget;
+}
 QT_END_NAMESPACE
 
-class Widget : public QWidget
-{
+class Widget : public QWidget {
     Q_OBJECT
 
 public:
@@ -32,7 +33,13 @@ private slots:
 
     void on_pushButton_input_str_clicked();
 
+    void on_pushButton_input_int_clicked();
+
+    void on_pushButton_input_double_clicked();
+
+    void on_pushButton_input_item_clicked();
+
 private:
     Ui::Widget *ui;
 };
-#endif // WIDGET_H
+#endif  // WIDGET_H
