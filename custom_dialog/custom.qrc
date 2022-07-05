@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/124.bmp</file>
+        <file>icons/130.bmp</file>
+        <file>icons/314.bmp</file>
+        <file>icons/814.bmp</file>
+    </qresource>
+</RCC>
