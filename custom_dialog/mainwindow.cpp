@@ -5,6 +5,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+    , dlgheaders(nullptr)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -25,6 +26,7 @@ MainWindow::~MainWindow()
 void MainWindow::initSignalSlots()
 {
     connect(ui->action_count, &QAction::triggered, this, &MainWindow::onActionCountTriggered);
+    connect(ui->action_headtext, &QAction::triggered, this, &MainWindow::onActionHeadersTriggered);
 }
 
 void MainWindow::onActionCountTriggered()
@@ -51,5 +53,23 @@ void MainWindow::onActionCountTriggered()
         int cols = dlgTableSize.columnCount();
         theModel->setRowCount(rows);
         theModel->setColumnCount(cols);
+    }
+}
+
+void MainWindow::onActionHeadersTriggered()
+{
+    if (!dlgheaders)
+        dlgheaders = new QWDialogHeaders(this);
+    if (dlgheaders->headerList().count() != theModel->columnCount()) {
+        QStringList strlist;
+        for (int i = 0; i < theModel->columnCount(); ++i)
+            strlist.append(theModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
+        dlgheaders->setHeaderList(strlist);
+    }
+
+    int ret = dlgheaders->exec();
+    if (ret == QDialog::Accepted) {
+        QStringList strList = dlgheaders->headerList();
+        theModel->setHorizontalHeaderLabels(strList);
     }
 }

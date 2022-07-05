@@ -11,14 +11,17 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    qwdialogheaders.cpp \
     qwdialogsize.cpp
 
 HEADERS += \
     mainwindow.h \
+    qwdialogheaders.h \
     qwdialogsize.h
 
 FORMS += \
     mainwindow.ui \
+    qwdialogheaders.ui \
     qwdialogsize.ui
 
 # Default rules for deployment.

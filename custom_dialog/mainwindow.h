@@ -5,6 +5,8 @@
 #include <QItemSelectionModel>
 #include <QStandardItemModel>
 
+#include "qwdialogheaders.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,11 +24,14 @@ private:
 
 private slots:
     void onActionCountTriggered();
+    void onActionHeadersTriggered();
 
 private:
     Ui::MainWindow *ui;
 
     QStandardItemModel *theModel;
     QItemSelectionModel *theSelection;
+
+    QWDialogHeaders *dlgheaders;
 };
 #endif // MAINWINDOW_H
