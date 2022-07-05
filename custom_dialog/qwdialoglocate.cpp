@@ -1,6 +1,5 @@
 #include "qwdialoglocate.h"
 #include "ui_qwdialoglocate.h"
-#include "mainwindow.h"
 
 #include <QMessageBox>
 
@@ -18,11 +17,13 @@ QWDialogLocate::~QWDialogLocate()
     delete ui;
 }
 
+void QWDialogLocate::showEvent(QShowEvent *event)
+{
+    emit changeActionEnable(false);
+}
 void QWDialogLocate::closeEvent(QCloseEvent *event)
 {
-    MainWindow *parwind = (MainWindow *) parentWidget();
-    parwind->setLocateEnable(true);
-    parwind->setDlgLocatNull();
+    emit changeActionEnable(true);
 }
 
 void QWDialogLocate::setSpinRange(int rowCount, int colCount)
@@ -41,8 +42,9 @@ void QWDialogLocate::on_btnSetText_clicked()
 {
     int row = ui->spinBox_row->value();
     int column = ui->spinBox_column->value();
-    MainWindow *parwind = (MainWindow *) parentWidget();
-    parwind->setACellText(row, column, ui->lineEdit->text());
+    QString text = ui->lineEdit->text();
+    emit changeCellText(row, column, text);
+
     if (ui->checkBox_row->isChecked())
         ui->spinBox_row->setValue(1 + ui->spinBox_row->value());
     if (ui->checkBox_column->isChecked())

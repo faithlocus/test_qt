@@ -7,9 +7,9 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
     , dlgheaders(nullptr)
     , dlglocate(nullptr)
-    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     theModel = new QStandardItemModel(5, 4, this);
@@ -35,18 +35,6 @@ void MainWindow::initSignalSlots()
 
 void MainWindow::onActionCountTriggered()
 {
-//    QWDialogSize *dlgTableSize = new QWDialogSize(this);
-//    auto flags = dlgTableSize->windowFlags();
-//    dlgTableSize->setWindowFlags(flags | Qt::MSWindowsFixedSizeDialogHint);
-//    dlgTableSize->setRowColumn(theModel->rowCount(), theModel->columnCount());
-//    int ret = dlgTableSize->exec();
-//    if (ret == QDialog::Accepted) {
-//        int rows = dlgTableSize->rowCount();
-//        int cols = dlgTableSize->columnCount();
-//        theModel->setRowCount(rows);
-//        theModel->setColumnCount(cols);
-//    }
-//    delete dlgTableSize;
     QWDialogSize dlgTableSize(this);
     auto flags = dlgTableSize.windowFlags();
     dlgTableSize.setWindowFlags(flags | Qt::MSWindowsFixedSizeDialogHint);
@@ -85,11 +73,15 @@ void MainWindow::onActionLocateTriggered()
     dlglocate->setAttribute(Qt::WA_DeleteOnClose);
     Qt::WindowFlags flags = dlglocate->windowFlags();
     dlglocate->setWindowFlags(flags | Qt::WindowStaysOnTopHint);
-
     dlglocate->setSpinRange(theModel->rowCount(), theModel->columnCount());
+
+    connect(this, &MainWindow::cellIndexChanged, dlglocate, &QWDialogLocate::initSpinValue);
+    connect(dlglocate, &QWDialogLocate::changeActionEnable, this, &MainWindow::setLocateEnable);
+    connect(dlglocate, &QWDialogLocate::changeCellText, this, &MainWindow::setACellText);
+
     QModelIndex index = theSelection->currentIndex();
     if (index.isValid())
-        dlglocate->initSpinValue(index.row(), index.column());
+        emit cellIndexChanged(index.row(), index.column());
     dlglocate->show();
 }
 
@@ -104,12 +96,13 @@ void MainWindow::setACellText(int row, int column, QString text)
 void MainWindow::setLocateEnable(bool flag)
 {
     ui->action_locate->setEnabled(flag);
+    if (flag)
+        setDlgLocatNull();
 }
 
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
-    if (dlglocate)
-        dlglocate->initSpinValue(index.row(), index.column());
+    emit cellIndexChanged(index.row(), index.column());
 }
 
 void MainWindow::setDlgLocatNull()

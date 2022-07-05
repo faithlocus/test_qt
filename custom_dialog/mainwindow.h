@@ -20,20 +20,22 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void setACellText(int row, int column, QString text);
-    void setLocateEnable(bool flag);
     void setDlgLocatNull();
 
 private:
-    void closeEvent(QCloseEvent*);
+    void closeEvent(QCloseEvent *event);
     void initSignalSlots();
 
+signals:
+    void cellIndexChanged(int row, int column);
 private slots:
     void onActionCountTriggered();
     void onActionHeadersTriggered();
     void onActionLocateTriggered();
-
     void on_tableView_clicked(const QModelIndex &index);
+
+    void setACellText(int row, int column, QString text);
+    void setLocateEnable(bool flag);
 
 private:
     Ui::MainWindow *ui;
