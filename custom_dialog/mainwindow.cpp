@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
+#include <QCloseEvent>
 
 #include "qwdialogsize.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , dlgheaders(nullptr)
+    , dlglocate(nullptr)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -27,6 +30,7 @@ void MainWindow::initSignalSlots()
 {
     connect(ui->action_count, &QAction::triggered, this, &MainWindow::onActionCountTriggered);
     connect(ui->action_headtext, &QAction::triggered, this, &MainWindow::onActionHeadersTriggered);
+    connect(ui->action_locate, &QAction::triggered, this, &MainWindow::onActionLocateTriggered);
 }
 
 void MainWindow::onActionCountTriggered()
@@ -72,4 +76,56 @@ void MainWindow::onActionHeadersTriggered()
         QStringList strList = dlgheaders->headerList();
         theModel->setHorizontalHeaderLabels(strList);
     }
+}
+
+void MainWindow::onActionLocateTriggered()
+{
+    setLocateEnable(false);
+    dlglocate = new QWDialogLocate(this);
+    dlglocate->setAttribute(Qt::WA_DeleteOnClose);
+    Qt::WindowFlags flags = dlglocate->windowFlags();
+    dlglocate->setWindowFlags(flags | Qt::WindowStaysOnTopHint);
+
+    dlglocate->setSpinRange(theModel->rowCount(), theModel->columnCount());
+    QModelIndex index = theSelection->currentIndex();
+    if (index.isValid())
+        dlglocate->initSpinValue(index.row(), index.column());
+    dlglocate->show();
+}
+
+void MainWindow::setACellText(int row, int column, QString text)
+{
+    QModelIndex index = theModel->index(row, column);
+    theSelection->clearSelection();
+    theSelection->setCurrentIndex(index, QItemSelectionModel::Select);
+    theModel->setData(index, text, Qt::DisplayRole);
+}
+
+void MainWindow::setLocateEnable(bool flag)
+{
+    ui->action_locate->setEnabled(flag);
+}
+
+void MainWindow::on_tableView_clicked(const QModelIndex &index)
+{
+    if (dlglocate)
+        dlglocate->initSpinValue(index.row(), index.column());
+}
+
+void MainWindow::setDlgLocatNull()
+{
+    dlglocate = nullptr;
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    int ret = QMessageBox::question(this,
+                                    "question",
+                                    "are you want to quit?",
+                                    QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+                                    QMessageBox::No);
+    if (ret == QMessageBox::Yes)
+        event->accept();
+    else
+        event->ignore();
 }

@@ -12,16 +12,19 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     qwdialogheaders.cpp \
+    qwdialoglocate.cpp \
     qwdialogsize.cpp
 
 HEADERS += \
     mainwindow.h \
     qwdialogheaders.h \
+    qwdialoglocate.h \
     qwdialogsize.h
 
 FORMS += \
     mainwindow.ui \
     qwdialogheaders.ui \
+    qwdialoglocate.ui \
     qwdialogsize.ui
 
 # Default rules for deployment.
