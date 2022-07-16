@@ -4,11 +4,12 @@
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class QwMainWindow; }
+namespace Ui {
+class QwMainWindow;
+}
 QT_END_NAMESPACE
 
-class QwMainWindow : public QMainWindow
-{
+class QwMainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -16,6 +17,9 @@ public:
     ~QwMainWindow();
 
 private:
+    void paintEvent(QPaintEvent *event);
+
+private:
     Ui::QwMainWindow *ui;
 };
-#endif // QWMAINWINDOW_H
+#endif  // QWMAINWINDOW_H

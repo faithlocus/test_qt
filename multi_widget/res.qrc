@@ -1,9 +1,12 @@
 <RCC>
-    <qresource prefix="/img">
+    <qresource prefix="/icon">
         <file>icons/preview1.bmp</file>
         <file>icons/print1.bmp</file>
         <file>icons/saveall1.bmp</file>
         <file>icons/undo.bmp</file>
         <file>icons/upfold1.bmp</file>
+    </qresource>
+    <qresource prefix="/imag">
+        <file>back.jpg</file>
     </qresource>
 </RCC>

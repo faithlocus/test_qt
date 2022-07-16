@@ -43,6 +43,12 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
@@ -66,7 +72,7 @@
   <action name="actionembedded_widget_action">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/img/icons/preview1.bmp</normaloff>:/img/icons/preview1.bmp</iconset>
+     <normaloff>:/icon/icons/preview1.bmp</normaloff>:/icon/icons/preview1.bmp</iconset>
    </property>
    <property name="text">
     <string>embedded widget</string>
@@ -75,7 +81,7 @@
   <action name="actionindependent_widget_action">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/img/icons/print1.bmp</normaloff>:/img/icons/print1.bmp</iconset>
+     <normaloff>:/icon/icons/print1.bmp</normaloff>:/icon/icons/print1.bmp</iconset>
    </property>
    <property name="text">
     <string>independent widget</string>
@@ -84,7 +90,7 @@
   <action name="actionembedded_mainwindow_action">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/img/icons/saveall1.bmp</normaloff>:/img/icons/saveall1.bmp</iconset>
+     <normaloff>:/icon/icons/saveall1.bmp</normaloff>:/icon/icons/saveall1.bmp</iconset>
    </property>
    <property name="text">
     <string>embedded mainwindow</string>
@@ -93,7 +99,7 @@
   <action name="actionindependent_mainwindow_action">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/img/icons/upfold1.bmp</normaloff>:/img/icons/upfold1.bmp</iconset>
+     <normaloff>:/icon/icons/undo.bmp</normaloff>:/icon/icons/undo.bmp</iconset>
    </property>
    <property name="text">
     <string>independent mainwindow</string>
@@ -102,7 +108,7 @@
   <action name="quit_action">
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/img/icons/undo.bmp</normaloff>:/img/icons/undo.bmp</iconset>
+     <normaloff>:/icon/icons/upfold1.bmp</normaloff>:/icon/icons/upfold1.bmp</iconset>
    </property>
    <property name="text">
     <string>quit</string>
