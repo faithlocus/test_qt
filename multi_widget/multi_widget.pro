@@ -10,12 +10,15 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    qformdoc.cpp \
     qwmainwindow.cpp
 
 HEADERS += \
+    qformdoc.h \
     qwmainwindow.h
 
 FORMS += \
+    qformdoc.ui \
     qwmainwindow.ui
 
 # Default rules for deployment.
