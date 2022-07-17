@@ -75,7 +75,7 @@
      <normaloff>:/icon/icons/preview1.bmp</normaloff>:/icon/icons/preview1.bmp</iconset>
    </property>
    <property name="text">
-    <string>embedded widget</string>
+    <string>嵌入式widget</string>
    </property>
   </action>
   <action name="actionindependent_widget_action">
@@ -84,7 +84,7 @@
      <normaloff>:/icon/icons/print1.bmp</normaloff>:/icon/icons/print1.bmp</iconset>
    </property>
    <property name="text">
-    <string>independent widget</string>
+    <string>独立widget窗口</string>
    </property>
   </action>
   <action name="actionembedded_mainwindow_action">
@@ -93,7 +93,7 @@
      <normaloff>:/icon/icons/saveall1.bmp</normaloff>:/icon/icons/saveall1.bmp</iconset>
    </property>
    <property name="text">
-    <string>embedded mainwindow</string>
+    <string>嵌入式Mainwindow</string>
    </property>
   </action>
   <action name="actionindependent_mainwindow_action">
@@ -102,7 +102,7 @@
      <normaloff>:/icon/icons/undo.bmp</normaloff>:/icon/icons/undo.bmp</iconset>
    </property>
    <property name="text">
-    <string>independent mainwindow</string>
+    <string>独立mainwindow</string>
    </property>
   </action>
   <action name="quit_action">
@@ -111,7 +111,7 @@
      <normaloff>:/icon/icons/upfold1.bmp</normaloff>:/icon/icons/upfold1.bmp</iconset>
    </property>
    <property name="text">
-    <string>quit</string>
+    <string>退出</string>
    </property>
   </action>
  </widget>

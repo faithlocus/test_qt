@@ -19,6 +19,12 @@ public:
 private slots:
     void on_action_insidewidget_triggered();
     void on_action_widget_triggered();
+    void on_action_insidemainwindow_triggered();
+    void on_action_mainwindow_triggered();
+
+    void on_tabWidget_currentChanged(int index);
+
+    void on_tabWidget_tabCloseRequested(int index);
 
 private:
     void initSignalSlot();
