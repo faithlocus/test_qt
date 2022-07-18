@@ -21,13 +21,18 @@ void MDIMainWindow::on_action_new_triggered() {
     QFormDoc *formdoc = new QFormDoc(this);
     ui->mdiArea->addSubWindow(formdoc);
     formdoc->show();
+
+    ui->action_cut->setEnabled(true);
+    ui->action_copy->setEnabled(true);
+    ui->action_paste->setEnabled(true);
+    ui->action_font->setEnabled(true);
 }
 
 void MDIMainWindow::on_action_open_triggered() {
     bool      need_new{ false };
     QFormDoc *formdoc;
     if (ui->mdiArea->subWindowList().count() > 0) {
-        formdoc  = ( QFormDoc * )(ui->mdiArea->activeSubWindow()->widget());
+        formdoc  = ( QFormDoc * )ui->mdiArea->activeSubWindow()->widget();
         need_new = formdoc->isFileOpened();
     } else {
         need_new = true;
@@ -86,17 +91,17 @@ void MDIMainWindow::on_mdiArea_subWindowActivated(QMdiSubWindow *arg1) {
         ui->action_font->setEnabled(false);
         ui->statusbar->clearMessage();
     } else {
-        QFormDoc *formdoc = static_cast<QFormDoc *>(ui->mdiArea->activeSubWindow()->widget());
+        QFormDoc *formdoc = ( QFormDoc * )ui->mdiArea->activeSubWindow()->widget();
         ui->statusbar->showMessage(formdoc->currentFileName());
     }
 }
 
 void MDIMainWindow::on_action_cut_triggered() {
-    QFormDoc *formdoc = ( QFormDoc * )(ui->mdiArea->activeSubWindow()->widget());
+    QFormDoc *formdoc = ( QFormDoc * )ui->mdiArea->activeSubWindow()->widget();
     formdoc->textCut();
 }
 
 void MDIMainWindow::on_action_font_triggered() {
-    QFormDoc *formdoc = ( QFormDoc * )(ui->mdiArea->activeSubWindow()->widget());
+    QFormDoc *formdoc = ( QFormDoc * )ui->mdiArea->activeSubWindow()->widget();
     formdoc->setEditFont();
 }

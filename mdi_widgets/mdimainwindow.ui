@@ -87,6 +87,9 @@
    </property>
   </action>
   <action name="action_cut">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="source.qrc">
      <normaloff>:/images/200.bmp</normaloff>:/images/200.bmp</iconset>
@@ -96,6 +99,9 @@
    </property>
   </action>
   <action name="action_copy">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="source.qrc">
      <normaloff>:/images/202.bmp</normaloff>:/images/202.bmp</iconset>
@@ -105,6 +111,9 @@
    </property>
   </action>
   <action name="action_paste">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="source.qrc">
      <normaloff>:/images/204.bmp</normaloff>:/images/204.bmp</iconset>
@@ -114,6 +123,9 @@
    </property>
   </action>
   <action name="action_font">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="source.qrc">
      <normaloff>:/images/506.bmp</normaloff>:/images/506.bmp</iconset>
@@ -123,6 +135,9 @@
    </property>
   </action>
   <action name="action_mdi">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="source.qrc">
      <normaloff>:/images/230.bmp</normaloff>:/images/230.bmp</iconset>
