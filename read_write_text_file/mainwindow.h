@@ -18,9 +18,17 @@ public:
 
 private:
     bool openTextByIODevice(const QString &aFileName);
+    bool saveTextByIODevice(const QString &aFileName);
+
+    bool openTextByStream(const QString &aFileName);
+    bool saveTextByStream(const QString &aFileName);
 
 private slots:
     void on_action_file_open_triggered();
+    void on_action_file_saveas_triggered();
+
+    void on_action_stream_open_triggered();
+    void on_action_stream_saveas_triggered();
 
 private:
     Ui::MainWindow *ui;
