@@ -16,6 +16,8 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
+#define FixedColumnCount 6
+
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
@@ -25,6 +27,8 @@ public:
 
 private slots:
     void on_action_save_stm_triggered();
+
+    void on_action_open_stm_triggered();
 
 private:
     void resetTable(int aRowCount);

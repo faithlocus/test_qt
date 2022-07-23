@@ -63,3 +63,82 @@ bool MainWindow::saveDataAsStream(QString &aFileName) {
     aFile.close();
     return true;
 }
+
+void MainWindow::on_action_open_stm_triggered() {
+    QString curPath = QDir::currentPath();
+    QString aFileName =
+        QFileDialog::getOpenFileName(this, "打开一个文件", curPath, "Qt预定义编码数据文件(*.stm)");
+    if (aFileName.isEmpty())
+        return;
+    if (openDataAsStream(aFileName))
+        QMessageBox::information(this, "提示消息", "文件已经打开");
+}
+
+bool MainWindow::openDataAsStream(QString &aFileName) {
+    QFile aFile(aFileName);
+    if (!(aFile.open(QIODevice::ReadOnly)))
+        return false;
+    QDataStream aStream(&aFile);
+    aStream.setVersion(QDataStream::Qt_5_12);
+    qint16 rowCount, colCount;
+    aStream >> rowCount >> colCount;
+    resetTable(rowCount);
+    QString str;
+    for (int i = 0; i < colCount; ++i)
+        aStream >> str;
+    qint16         ceshen;
+    qreal          chuishen, fangwei, weiyi;
+    QString        zhiliang;
+    bool           quyang;
+    QStandardItem *aItem;
+    QModelIndex    index;
+    for (int i = 0; i < rowCount; ++i) {
+        aStream >> ceshen;
+        index = theModel->index(i, 0);
+        aItem = theModel->itemFromIndex(index);
+        aItem->setData(ceshen, Qt::DisplayRole);
+
+        aStream >> chuishen;
+        index = theModel->index(i, 1);
+        aItem = theModel->itemFromIndex(index);
+        aItem->setData(chuishen, Qt::DisplayRole);
+
+        aStream >> fangwei;
+        index = theModel->index(i, 2);
+        aItem = theModel->itemFromIndex(index);
+        aItem->setData(fangwei, Qt::DisplayRole);
+
+        aStream >> weiyi;
+        index = theModel->index(i, 3);
+        aItem = theModel->itemFromIndex(index);
+        aItem->setData(weiyi, Qt::DisplayRole);
+
+        aStream >> zhiliang;
+        index = theModel->index(i, 4);
+        aItem = theModel->itemFromIndex(index);
+        aItem->setData(zhiliang, Qt::DisplayRole);
+
+        aStream >> quyang;
+        index = theModel->index(i, 5);
+        if (quyang)
+            aItem->setCheckState(Qt::Checked);
+        else
+            aItem->setCheckState(Qt::Unchecked);
+    }
+    aFile.close();
+    return true;
+}
+
+void MainWindow::resetTable(int aRowCount) {
+    theModel->removeRows(0, theModel->rowCount());
+    theModel->setRowCount(aRowCount);
+    QString str = theModel->headerData(theModel->columnCount() - 1, Qt::Horizontal, Qt::DisplayRole)
+                      .toString();
+    for (int i = 0; i < theModel->rowCount(); ++i) {
+        QModelIndex    index = theModel->index(i, FixedColumnCount - 1);
+        QStandardItem *aItem = theModel->itemFromIndex(index);
+        aItem->setCheckable(true);
+        aItem->setData(str, Qt::DisplayRole);
+        aItem->setEditable(false);
+    }
+}
