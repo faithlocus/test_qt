@@ -1,4 +1,4 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QItemSelectionModel>
@@ -27,8 +27,9 @@ public:
 
 private slots:
     void on_action_save_stm_triggered();
-
     void on_action_open_stm_triggered();
+    void on_action_open_dat_triggered();
+    void on_action_save_dat_triggered();
 
 private:
     void resetTable(int aRowCount);
