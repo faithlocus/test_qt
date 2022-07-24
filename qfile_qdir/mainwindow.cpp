@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QInputDialog>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -81,5 +84,31 @@ void MainWindow::on_pushButton_7_clicked()
 {
     showBtnInfo(sender());
     QCoreApplication::exit();
+}
+
+
+void MainWindow::on_pushButton_open_file_clicked()
+{
+    showBtnInfo(sender());
+    QString file_name = QFileDialog::getOpenFileName(this,
+                                                     "open file",
+                                                     QDir::currentPath(),
+                                                     "all files(*.*)");
+    if (file_name.isEmpty())
+        return;
+    ui->lineEdit_file->setText(file_name);
+
+    QFile file(file_name);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream stream(&file);
+        QString info = stream.readAll();
+        ui->plainTextEdit->appendPlainText(info);
+    }
+}
+
+
+void MainWindow::on_pushButton_open_dir_clicked()
+{
+    showBtnInfo(sender());
 }
 

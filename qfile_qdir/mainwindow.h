@@ -30,6 +30,10 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_pushButton_open_file_clicked();
+
+    void on_pushButton_open_dir_clicked();
+
 private:
     void showBtnInfo(QObject *btn);
 
